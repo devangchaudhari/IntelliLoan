@@ -16,7 +16,7 @@ const Navbar = () => {
       if (token) {
         try {
           setIsLoading(true);
-          const response = await fetch('http://localhost:5000/routes/auth/profile', {
+          const response = await fetch('https://intelli-loan-backend.vercel.app/routes/auth/profile', {
             method: 'GET',
             headers: {
               'Authorization': `Bearer ${token}`,

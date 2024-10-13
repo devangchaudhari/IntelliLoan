@@ -28,7 +28,7 @@ const AuthPage = () => {
       authData.email = email;
     }
 
-    const url = `http://localhost:5000/routes/auth/${isLogin ? 'login' : 'register'}`;
+    const url = `https://intelli-loan-backend.vercel.app/routes/auth/${isLogin ? 'login' : 'register'}`;
 
     try {
       const response = await fetch(url, {

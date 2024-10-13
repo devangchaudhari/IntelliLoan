@@ -17,7 +17,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/routes/auth/profile', {
+        const response = await fetch('https://intelli-loan-backend.vercel.app/routes/auth/profile', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -32,7 +32,7 @@ const ProfilePage = () => {
             dob: data.dob ? new Date(data.dob).toISOString().split('T')[0] : '',
             profileImage: data.profileImage || '',
           });
-          setImagePreview(data.profileImage ? `http://localhost:5000/${data.profileImage}` : null);
+          setImagePreview(data.profileImage ? `https://intelli-loan-backend.vercel.app/${data.profileImage}` : null);
         } else {
           alert('Failed to fetch profile data');
         }
@@ -67,7 +67,7 @@ const ProfilePage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/routes/auth/profile', {
+      const response = await fetch('https://intelli-loan-backend.vercel.app/routes/auth/profile', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -84,7 +84,7 @@ const ProfilePage = () => {
           dob: data.dob ? new Date(data.dob).toISOString().split('T')[0] : '',
           profileImage: data.profileImage || '',
         });
-        setImagePreview(data.profileImage ? `http://localhost:5000/${data.profileImage}` : null);
+        setImagePreview(data.profileImage ? `https://intelli-loan-backend.vercel.app/${data.profileImage}` : null);
       } else {
         alert('Failed to update profile');
       }

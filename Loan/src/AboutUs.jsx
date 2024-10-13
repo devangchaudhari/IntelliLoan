@@ -23,7 +23,7 @@ const AboutPage = () => {
 
     // Sending feedback via email (Using a service like EmailJS or a backend)
     try {
-      const response = await fetch('http://localhost:5000/send-feedback', {
+      const response = await fetch('https://intelli-loan-backend.vercel.app/send-feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

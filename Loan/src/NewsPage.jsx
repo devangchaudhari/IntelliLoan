@@ -8,7 +8,7 @@ const NewsPage = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch('http://localhost:5000/routes/news/loan');
+        const response = await fetch('https://intelli-loan-backend.vercel.app/routes/news/loan');
         const data = await response.json();
         if (response.ok) {
           setNews(data);  // Set the news articles in state
