@@ -74,6 +74,7 @@ const ProfilePage = () => {
         const cloudinaryData = await cloudinaryResponse.json();
         if (cloudinaryResponse.ok) {
           imageUrl = cloudinaryData.secure_url; // Get the URL of the uploaded image
+          setImagePreview(imageUrl); // Update imagePreview state with the uploaded image URL
         } else {
           alert('Failed to upload image to Cloudinary');
           return;
@@ -137,7 +138,7 @@ const ProfilePage = () => {
         <div className="flex justify-center mb-6 relative">
           <div className="relative">
             <img
-              src={imagePreview || 'https://via.placeholder.com/150'}
+              src={imagePreview || 'https://via.placeholder.com/150'} // Show uploaded image or placeholder
               alt="Profile"
               className="w-32 h-32 rounded-full border-4 border-indigo-600 object-cover"
             />
@@ -214,7 +215,7 @@ const ProfilePage = () => {
             <a href="/home" className="text-white hover:underline">Home</a>
             <a href="/news" className="text-white hover:underline">News</a>
             <a href="/profile" className="text-white hover:underline">Profile</a>
-            <a href="/about" className="text-white hover:underline">AboutUs</a>
+            <a href="/about" className="text-white hover:underline">About Us</a>
           </div>
         </div>
       </footer>
