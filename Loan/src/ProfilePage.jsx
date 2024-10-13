@@ -29,6 +29,8 @@ const ProfilePage = () => {
           if (data.profileImage) {
             setImagePreview(data.profileImage);
           }
+        } else {
+          console.error('Failed to fetch profile data:', response.statusText);
         }
       } catch (error) {
         console.error('Error fetching profile data:', error);
