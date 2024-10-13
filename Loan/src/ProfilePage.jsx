@@ -32,7 +32,8 @@ const ProfilePage = () => {
             dob: data.dob ? new Date(data.dob).toISOString().split('T')[0] : '',
             profileImage: data.profileImage || '',
           });
-          setImagePreview(data.profileImage ? `https://intelli-loan-backend.vercel.app/${data.profileImage}` : null);
+          // Set image preview directly from data returned
+          setImagePreview(data.profileImage ? data.profileImage : null);
         } else {
           alert('Failed to fetch profile data');
         }
@@ -111,7 +112,7 @@ const ProfilePage = () => {
           dob: data.dob ? new Date(data.dob).toISOString().split('T')[0] : '',
           profileImage: data.profileImage || '',
         });
-        setImagePreview(data.profileImage ? data.profileImage : null);
+        setImagePreview(data.profileImage ? data.profileImage : null); // Update imagePreview from server response
       } else {
         alert('Failed to update profile');
       }
