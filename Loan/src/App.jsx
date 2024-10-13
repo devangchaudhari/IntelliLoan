@@ -9,6 +9,7 @@ import LoanPage from './LoanPage';
 import ProfilePage from './ProfilePage';
 import ApprovePage from './ApprovePage';
 import AboutUs from './AboutUs';
+//import Predict from './Predict';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/approve" element={<ApprovePage />} />
           <Route path="/about" element={<AboutUs />} />
+          
         </Routes>
       </div>
     </Router>
