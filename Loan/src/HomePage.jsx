@@ -129,6 +129,49 @@ const HomePage = () => {
         </div>
       </div>
 
+        {/* Available Everywhere You Go Section */}
+        <div className="mt-16 w-full max-w-6xl px-6" data-aos="fade-up">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 mb-12">Available Everywhere You Go</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center">
+          {/* Laptop */}
+          <div className="relative" data-aos="fade-up">
+            <img 
+              src="laptop.png" // Path to your laptop image
+              alt="Laptop Interface"
+              className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <p className="text-center mt-2 text-indigo-600 font-semibold">Laptop</p>
+          </div>
+          {/* Tablet */}
+          <div className="relative" data-aos="fade-up">
+            <img 
+              src="tablet.png" // Path to your tablet image
+              alt="Tablet Interface"
+              className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <p className="text-center mt-2 text-indigo-600 font-semibold">Tablet</p>
+          </div>
+          {/* iPad */}
+          <div className="relative" data-aos="fade-up">
+            <img 
+              src="ipad.png" // Path to your iPad image
+              alt="iPad Interface"
+              className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <p className="text-center mt-2 text-indigo-600 font-semibold">iPad</p>
+          </div>
+          {/* Mobile */}
+          <div className="relative" data-aos="fade-up">
+            <img 
+              src="mobile.png" // Path to your mobile image
+              alt="Mobile Interface"
+              className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <p className="text-center mt-2 text-indigo-600 font-semibold">Mobile</p>
+          </div>
+        </div>
+      </div>
+
       {/* Loan Calculator Section */}
       <div className="mt-16 w-full max-w-xs sm:max-w-md px-4 sm:px-6 mx-auto bg-white shadow-md rounded-lg p-4 sm:p-6" data-aos="fade-up">
   <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">Loan Calculator</h2>
@@ -226,3 +269,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
