@@ -56,23 +56,49 @@ const ProfilePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    let imageUrl = profileData.profileImage;
 
-    // Create FormData to handle image upload if necessary
-    const formData = new FormData();
-    formData.append('name', profileData.name);
-    formData.append('phone', profileData.phone);
-    formData.append('dob', profileData.dob);
+    // Upload to Cloudinary if an image is selected
     if (profileData.profileImage instanceof File) {
-      formData.append('profileImage', profileData.profileImage);
+      const formData = new FormData();
+      formData.append('file', profileData.profileImage);
+      formData.append('upload_preset', 'intelliloan'); // Replace with your upload preset
+
+      try {
+        const cloudinaryResponse = await fetch(`https://api.cloudinary.com/v1_1/dsfginzr7/image/upload`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        const cloudinaryData = await cloudinaryResponse.json();
+        if (cloudinaryResponse.ok) {
+          imageUrl = cloudinaryData.secure_url; // Get the URL of the uploaded image
+        } else {
+          alert('Failed to upload image to Cloudinary');
+          return;
+        }
+      } catch (error) {
+        console.error('Error uploading image to Cloudinary:', error);
+        alert('Error uploading image');
+        return;
+      }
     }
 
+    // Update profile data
     try {
       const response = await fetch('https://intelli-loan-backend.vercel.app/routes/auth/profile', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
         },
-        body: formData,
+        body: JSON.stringify({
+          name: profileData.name,
+          phone: profileData.phone,
+          dob: profileData.dob,
+          profileImage: imageUrl, // Use Cloudinary image URL
+        }),
       });
 
       const data = await response.json();
@@ -84,7 +110,7 @@ const ProfilePage = () => {
           dob: data.dob ? new Date(data.dob).toISOString().split('T')[0] : '',
           profileImage: data.profileImage || '',
         });
-        setImagePreview(data.profileImage ? `https://intelli-loan-backend.vercel.app/${data.profileImage}` : null);
+        setImagePreview(data.profileImage ? data.profileImage : null);
       } else {
         alert('Failed to update profile');
       }

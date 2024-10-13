@@ -10,6 +10,8 @@ const nodemailer = require("nodemailer");  // Nodemailer for email functionality
 const authRoutes = require("./routes/auth");
 const User = require("./models/User");
 
+const cloudinary = require('cloudinary').v2;
+
 require('dotenv').config();
 
 
@@ -19,6 +21,18 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded files
+
+
+
+// Cloudinary configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, // Your Cloudinary cloud name
+  api_key: process.env.CLOUDINARY_API_KEY,       // Your Cloudinary API key
+  api_secret: process.env.CLOUDINARY_API_SECRET,  // Your Cloudinary API secret
+});
+
+
+
 
 // MongoDB connection string (use your MongoDB Atlas URI)
 const mongoURI = process.env.MONGO_URI;
@@ -50,7 +64,7 @@ const verifyToken = (req, res, next) => {
 };
 
 // Multer setup for file uploads
-const storage = multer.diskStorage({
+/* const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');  // Files will be saved in the "uploads" directory
   },
@@ -68,7 +82,9 @@ const upload = multer({
     }
     cb(null, true);
   }
-});
+}); */
+
+const upload = multer({ limits: { fileSize: 10 * 1024 * 1024 } });
 
 // Route to get user profile
 app.get("/routes/auth/profile", verifyToken, async (req, res) => {
@@ -83,7 +99,7 @@ app.get("/routes/auth/profile", verifyToken, async (req, res) => {
 });
 
 // Route to update user profile (with image upload)
-app.put("/routes/auth/profile", verifyToken, upload.single('profileImage'), async (req, res) => {
+/* app.put("/routes/auth/profile", verifyToken, upload.single('profileImage'), async (req, res) => {
   try {
     const { name, phone, dob } = req.body;
     const profileImage = req.file ? req.file.filename : undefined;
@@ -104,7 +120,38 @@ app.put("/routes/auth/profile", verifyToken, upload.single('profileImage'), asyn
     console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
+}); */
+
+// Route to update user profile (with image upload)
+app.put("/routes/auth/profile", verifyToken, upload.single('profileImage'), async (req, res) => {
+  try {
+    const { name, phone, dob } = req.body;
+    let profileImageUrl;
+
+    // Upload image to Cloudinary if a file is provided
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path); // Upload file to Cloudinary
+      profileImageUrl = result.secure_url; // Get the URL of the uploaded image
+    }
+
+    const updatedData = {
+      username: name,
+      phone,
+      dob: dob ? new Date(dob) : undefined,
+      profileImage: profileImageUrl || undefined, // Use the Cloudinary URL
+    };
+
+    // Remove undefined values (if no image is uploaded, don't update it)
+    Object.keys(updatedData).forEach(key => updatedData[key] === undefined && delete updatedData[key]);
+
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, updatedData, { new: true });
+    res.json(updatedUser);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server error" });
+  }
 });
+
 
 // Use the auth routes (Registration, Login, etc.)
 app.use("/routes/auth", authRoutes);
@@ -172,3 +219,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
