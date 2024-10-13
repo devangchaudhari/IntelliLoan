@@ -145,11 +145,11 @@ const HomePage = () => {
           {/* Tablet */}
           <div className="relative" data-aos="fade-up">
             <img 
-              src="tablet.png" // Path to your tablet image
+              src="tv.png" // Path to your tablet image
               alt="Tablet Interface"
               className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
             />
-            <p className="text-center mt-2 text-indigo-600 font-semibold">Tablet</p>
+            <p className="text-center mt-2 text-indigo-600 font-semibold">Television</p>
           </div>
           {/* iPad */}
           <div className="relative" data-aos="fade-up">
