@@ -18,7 +18,14 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+
+
+// Enable CORS for all routes or specify origin
+app.use(cors({
+  origin: 'https://intelli-loan.vercel.app', // Allow only your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+}));
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded files
 
