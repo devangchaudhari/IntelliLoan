@@ -57,34 +57,13 @@ const ProfilePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    let imageUrl = profileData.profileImage;
 
-    // Upload to Cloudinary if an image is selected
-    if (profileData.profileImage instanceof File) {
-      const formData = new FormData();
-      formData.append('file', profileData.profileImage);
-      formData.append('upload_preset', 'intelliloan'); // Replace with your upload preset
-
-      try {
-        const cloudinaryResponse = await fetch(`https://api.cloudinary.com/v1_1/dsfginzr7/image/upload`, {
-          method: 'POST',
-          body: formData,
-        });
-
-        const cloudinaryData = await cloudinaryResponse.json();
-        if (cloudinaryResponse.ok) {
-          imageUrl = cloudinaryData.secure_url; // Get the URL of the uploaded image
-          setImagePreview(imageUrl); // Update imagePreview state with the uploaded image URL
-        } else {
-          alert('Failed to upload image to Cloudinary');
-          return;
-        }
-      } catch (error) {
-        console.error('Error uploading image to Cloudinary:', error);
-        alert('Error uploading image');
-        return;
-      }
+    const formData = new FormData();
+    formData.append('name', profileData.name);
+    formData.append('phone', profileData.phone);
+    formData.append('dob', profileData.dob);
+    if (profileData.profileImage) {
+      formData.append('profileImage', profileData.profileImage);
     }
 
     // Update profile data
@@ -93,26 +72,21 @@ const ProfilePage = () => {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: profileData.name,
-          phone: profileData.phone,
-          dob: profileData.dob,
-          profileImage: imageUrl, // Use Cloudinary image URL
-        }),
+        body: formData,
       });
 
       const data = await response.json();
       if (response.ok) {
         alert('Profile updated successfully!');
+        // Refresh profile data
         setProfileData({
           name: data.username,
           phone: data.phone || '',
           dob: data.dob ? new Date(data.dob).toISOString().split('T')[0] : '',
           profileImage: data.profileImage || '',
         });
-        setImagePreview(data.profileImage ? data.profileImage : null); // Update imagePreview from server response
+        setImagePreview(data.profileImage ? data.profileImage : null);
       } else {
         alert('Failed to update profile');
       }
@@ -139,7 +113,7 @@ const ProfilePage = () => {
         <div className="flex justify-center mb-6 relative">
           <div className="relative">
             <img
-              src={imagePreview || 'https://via.placeholder.com/150'} // Show uploaded image or placeholder
+              src={imagePreview || 'https://via.placeholder.com/150'}
               alt="Profile"
               className="w-32 h-32 rounded-full border-4 border-indigo-600 object-cover"
             />

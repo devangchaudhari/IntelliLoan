@@ -121,16 +121,16 @@ app.get("/routes/auth/profile", verifyToken, async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 }); */
-
 // Route to update user profile (with image upload)
-app.put("/routes/auth/profile", verifyToken, upload.single('profileImage'), async (req, res) => {
+// Route to update user profile (with image upload)
+app.put("/routes/auth/profile", verifyToken, async (req, res) => {
   try {
     const { name, phone, dob } = req.body;
     let profileImageUrl;
 
-    // Upload image to Cloudinary if a file is provided
-    if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path); // Upload file to Cloudinary
+    // Check if an image is included in the request
+    if (req.files && req.files.profileImage) {
+      const result = await cloudinary.uploader.upload(req.files.profileImage[0].path);
       profileImageUrl = result.secure_url; // Get the URL of the uploaded image
     }
 
@@ -138,20 +138,17 @@ app.put("/routes/auth/profile", verifyToken, upload.single('profileImage'), asyn
       username: name,
       phone,
       dob: dob ? new Date(dob) : undefined,
-      profileImage: profileImageUrl || undefined, // Use the Cloudinary URL
+      profileImage: profileImageUrl || undefined, // Use the Cloudinary image URL
     };
 
-    // Remove undefined values (if no image is uploaded, don't update it)
-    Object.keys(updatedData).forEach(key => updatedData[key] === undefined && delete updatedData[key]);
-
+    // Find user and update their profile
     const updatedUser = await User.findByIdAndUpdate(req.user.id, updatedData, { new: true });
-    res.json(updatedUser);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ msg: "Server error" });
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.error('Error updating user profile:', error);
+    res.status(500).send('Server Error');
   }
 });
-
 
 // Use the auth routes (Registration, Login, etc.)
 app.use("/routes/auth", authRoutes);
