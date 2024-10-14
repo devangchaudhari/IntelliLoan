@@ -58,6 +58,7 @@ const Navbar = () => {
       <Link to="/loan" className="hover:underline">Loans</Link>
       <Link to="/profile" className="hover:underline">Profile</Link>
       <Link to="/about" className="hover:underline">AboutUs</Link>
+      <Link to="/chart" className="hover:underline">Chart</Link>
     </>
   );
 
@@ -98,6 +99,7 @@ const Navbar = () => {
       {/* Mobile Menu Toggle (Hamburger Icon) */}
       <div className="md:hidden">
         <button onClick={toggleMobileMenu} className="text-white">
+          <div className="w-6 h-0.5 bg-white my-1"></div>
           <div className="w-6 h-0.5 bg-white my-1"></div>
           <div className="w-6 h-0.5 bg-white my-1"></div>
           <div className="w-6 h-0.5 bg-white my-1"></div>

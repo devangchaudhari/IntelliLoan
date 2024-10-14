@@ -189,6 +189,7 @@ const ProfilePage = () => {
           <div className="mt-6 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6">
             <a href="/home" className="text-white hover:underline">Home</a>
             <a href="/news" className="text-white hover:underline">News</a>
+            <a href="/chart" className="text-white hover:underline">Chart</a>
             <a href="/profile" className="text-white hover:underline">Profile</a>
             <a href="/about" className="text-white hover:underline">About Us</a>
           </div>
