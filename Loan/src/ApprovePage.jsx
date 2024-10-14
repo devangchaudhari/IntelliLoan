@@ -49,7 +49,7 @@ const ApprovePage = () => {
     }
 
     try {
-      const response = await fetch('https://intelliloan-python.vercel.app/api/predict', {
+      const response = await fetch('https://intelliloan-python.vercel.app/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
