@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # Load the model
-model = pickle.load(open('C:\\Users\\Admin\\OneDrive\\Desktop\\IntelliLoan\\Loan_Python\\loan_status_model (2).pkl', 'rb'))
+model = pickle.load(open('loan_status_model (2).pkl', 'rb'))
 
 
 from sklearn.impute import SimpleImputer
