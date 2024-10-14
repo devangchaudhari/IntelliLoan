@@ -1,9 +1,16 @@
 import numpy as np
 import pandas as pd
 import pickle
+import os
+
+# Get the absolute path to the model file
+model_path = os.path.join(os.path.dirname(__file__), 'model', 'loan_status_model (2).pkl')
 
 # Load the model
-model = pickle.load(open('loan_status_model (2).pkl', 'rb'))
+# model = pickle.load(open('loan_status_model (2).pkl', 'rb'))
+
+# Load the model
+model = pickle.load(open(model_path, 'rb'))
 
 
 from sklearn.impute import SimpleImputer
