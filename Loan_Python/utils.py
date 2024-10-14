@@ -13,7 +13,7 @@ model_path = os.path.join(os.path.dirname(__file__), 'model', 'loan_status_model
 model = pickle.load(open(model_path, 'rb'))
 
 
-from sklearn.impute import SimpleImputer
+from sklearn.impute import SimpleImputer 
 
 def preprocess_features(features):
     # Infer object types to avoid FutureWarnings
