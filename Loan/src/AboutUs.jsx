@@ -72,9 +72,9 @@ const AboutPage = () => {
 
         <h2 className="text-2xl font-bold text-indigo-600 mb-4" data-aos="fade-up">Creators</h2>
         <ul className="list-disc pl-6 mb-6 text-lg text-gray-700">
-          <li data-aos="fade-up">Devang Chaudhari - Founder and Developer</li>
-          <li data-aos="fade-up">John Doe - Data Scientist</li>
-          <li data-aos="fade-up">Jane Smith - Financial Expert</li>
+          <li data-aos="fade-up">Devang Chaudhari </li>
+          <li data-aos="fade-up">Shruti Mamidwar </li>
+          <li data-aos="fade-up">Sanika Mali </li>
         </ul>
 
         <h2 className="text-2xl font-bold text-indigo-600 mb-4" data-aos="fade-up">Feedback</h2>

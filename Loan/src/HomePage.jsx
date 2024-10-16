@@ -113,17 +113,17 @@ const HomePage = () => {
         <div className="flex flex-wrap justify-center gap-8">
           <div className="bg-white shadow-lg rounded-lg p-6 max-w-xs text-center" data-aos="zoom-in">
             <p className="text-lg text-gray-600">"Intelliloan made getting my home loan so simple and fast. Highly recommended!"</p>
-            <h4 className="mt-4 text-indigo-600 font-semibold">John Doe</h4>
+            <h4 className="mt-4 text-indigo-600 font-semibold">Dhiraj Rathod</h4>
             <p className="text-gray-500">Home Loan Customer</p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6 max-w-xs text-center" data-aos="zoom-in">
             <p className="text-lg text-gray-600">"The car loan process was smooth, and I got the best interest rates!"</p>
-            <h4 className="mt-4 text-indigo-600 font-semibold">Jane Smith</h4>
+            <h4 className="mt-4 text-indigo-600 font-semibold">Vedant Sonar</h4>
             <p className="text-gray-500">Car Loan Customer</p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6 max-w-xs text-center" data-aos="zoom-in">
             <p className="text-lg text-gray-600">"Great service for a quick gold loan. Excellent customer support!"</p>
-            <h4 className="mt-4 text-indigo-600 font-semibold">Ravi Kumar</h4>
+            <h4 className="mt-4 text-indigo-600 font-semibold">Prathamesh Bhosle</h4>
             <p className="text-gray-500">Gold Loan Customer</p>
           </div>
         </div>
