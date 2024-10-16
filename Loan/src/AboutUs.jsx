@@ -59,15 +59,15 @@ const AboutPage = () => {
     <strong className="text-blue-600">Intelliloan</strong> is a modern platform providing users with financial solutions, specifically focused on simplifying the loan approval process.
   </p>
 
-  <p className="text-lg text-gray-700 leading-relaxed">
+  <p className="text-lg text-gray-700 leading-relaxed" data-aos="fade-up">
     Our team consists of <span className="font-bold text-gray-900">financial experts</span> and <span className="font-bold text-gray-900">data scientists</span> who leverage machine learning to help predict loan approvals quickly and accurately.
   </p>
 
-  <p className="text-lg text-gray-700 leading-relaxed">
+  <p className="text-lg text-gray-700 leading-relaxed" data-aos="fade-up">
     Our mission is to offer a <span className="text-green-600">seamless</span>, <span className="text-green-600">trustworthy</span>, and <span className="text-green-600">reliable</span> loan prediction experience for individuals seeking financial assistance.
   </p>
 
-  <p className="text-lg text-gray-700 leading-relaxed">
+  <p className="text-lg text-gray-700 leading-relaxed" data-aos="fade-up">
     We believe in <span className="text-purple-600 font-semibold">transparency</span> and strive to educate our users about their options, empowering them to make informed financial decisions.
   </p>
 </div>
