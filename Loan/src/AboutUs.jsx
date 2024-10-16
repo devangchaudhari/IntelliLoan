@@ -54,21 +54,24 @@ const AboutPage = () => {
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6">
         <h1 className="text-4xl font-bold text-indigo-600 mb-6 text-center" data-aos="fade-up">About Us</h1>
         
-        <p className="text-lg text-gray-600 mb-4" data-aos="fade-up">
-          <strong>Intelliloan</strong> is a modern platform providing users with financial solutions, specifically focused on simplifying the loan approval process.
-        </p>
+        <div className="space-y-6" data-aos="fade-up">
+  <p className="text-xl font-semibold text-gray-800 mb-4">
+    <strong className="text-blue-600">Intelliloan</strong> is a modern platform providing users with financial solutions, specifically focused on simplifying the loan approval process.
+  </p>
 
-        <p className="text-lg text-gray-600 mb-4" data-aos="fade-up">
-          Our team consists of financial experts and data scientists who leverage machine learning to help predict loan approvals quickly and accurately.
-        </p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    Our team consists of <span className="font-bold text-gray-900">financial experts</span> and <span className="font-bold text-gray-900">data scientists</span> who leverage machine learning to help predict loan approvals quickly and accurately.
+  </p>
 
-        <p className="text-lg text-gray-600 mb-4" data-aos="fade-up">
-          Our mission is to offer a seamless, trustworthy, and reliable loan prediction experience for individuals seeking financial assistance.
-        </p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    Our mission is to offer a <span className="text-green-600">seamless</span>, <span className="text-green-600">trustworthy</span>, and <span className="text-green-600">reliable</span> loan prediction experience for individuals seeking financial assistance.
+  </p>
 
-        <p className="text-lg text-gray-600 mb-6" data-aos="fade-up">
-          We believe in transparency, and we strive to educate our users about their options, empowering them to make informed financial decisions.
-        </p>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    We believe in <span className="text-purple-600 font-semibold">transparency</span> and strive to educate our users about their options, empowering them to make informed financial decisions.
+  </p>
+</div>
+
 
         <h2 className="text-2xl font-bold text-indigo-600 mb-4" data-aos="fade-up">Creators</h2>
         <ul className="list-disc pl-6 mb-6 text-lg text-gray-700">
