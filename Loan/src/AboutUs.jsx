@@ -71,7 +71,7 @@ const AboutPage = () => {
     We believe in <span className="text-purple-600 font-semibold">transparency</span> and strive to educate our users about their options, empowering them to make informed financial decisions.
   </p>
 </div>
-
+<br></br>
 
         <h2 className="text-2xl font-bold text-indigo-600 mb-4" data-aos="fade-up">Creators</h2>
         <ul className="list-disc pl-6 mb-6 text-lg text-gray-700">
