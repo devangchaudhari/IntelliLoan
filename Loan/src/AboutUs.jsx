@@ -51,7 +51,7 @@ const AboutPage = () => {
     <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 pt-10 sm:pt-20">
       <Navbar />
       
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mt-16 sm:mt-20">
         <h1 className="text-4xl font-bold text-indigo-600 mb-6 text-center" data-aos="fade-up">About Us</h1>
         
         <div className="space-y-6 mb-4" data-aos="fade-up">
