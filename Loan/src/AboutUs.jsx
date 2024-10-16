@@ -54,7 +54,7 @@ const AboutPage = () => {
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6">
         <h1 className="text-4xl font-bold text-indigo-600 mb-6 text-center" data-aos="fade-up">About Us</h1>
         
-        <div className="space-y-6" data-aos="fade-up">
+        <div className="space-y-6 mb-4" data-aos="fade-up">
   <p className="text-xl font-semibold text-gray-800 mb-4">
     <strong className="text-blue-600">Intelliloan</strong> is a modern platform providing users with financial solutions, specifically focused on simplifying the loan approval process.
   </p>
@@ -71,7 +71,7 @@ const AboutPage = () => {
     We believe in <span className="text-purple-600 font-semibold">transparency</span> and strive to educate our users about their options, empowering them to make informed financial decisions.
   </p>
 </div>
-<br></br>
+
 
         <h2 className="text-2xl font-bold text-indigo-600 mb-4" data-aos="fade-up">Creators</h2>
         <ul className="list-disc pl-6 mb-6 text-lg text-gray-700">
