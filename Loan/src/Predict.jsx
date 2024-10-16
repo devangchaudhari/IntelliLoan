@@ -36,7 +36,7 @@ const PredictPage = () => {
       <footer className="w-full bg-indigo-600 text-white py-8 mt-12">
         <div className="max-w-6xl mx-auto text-center px-4">
           <p className="text-lg">&copy; 2024 Intelliloan. All rights reserved.</p>
-          <p className="mt-2">Created with ❤️ by Devang Chaudhari and the team.</p>
+          <p className="mt-2">Created by Devang Chaudhari, Shruti Mamidwar and Sanika Mali.</p>
           <div className="mt-6 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6">
             <a href="/home" className="text-white hover:underline">Home</a>
             <a href="/news" className="text-white hover:underline">News</a>
