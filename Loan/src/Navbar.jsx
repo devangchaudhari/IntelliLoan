@@ -66,7 +66,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 bg-indigo-600 text-white shadow-lg z-50">
       {/* Logo/Brand name */}
       <div className="text-2xl font-bold">
-        <Link to="" className="text-white">IntelliLoan</Link>
+        <Link to="/home" className="text-white">IntelliLoan</Link>
       </div>
 
       {/* Desktop Navbar Links */}
